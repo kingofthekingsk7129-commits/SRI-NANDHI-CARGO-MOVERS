@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="ta">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#123b32">
+<title>SRI NANDHI CARGO MOVERS – Trip Book</title>
+<style>
+:root{--green:#123b32;--gold:#e7b84b;--bg:#f3f6f4;--ink:#17231f}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:Arial,"Noto Sans Tamil",sans-serif;color:var(--ink)}
+header{background:var(--green);color:white;padding:18px 16px;text-align:center}header h1{font-size:21px;margin:0 0 5px}header p{margin:0;color:#e8d7a6;font-size:13px}
+main{max-width:900px;margin:auto;padding:14px}.tabs{display:flex;gap:8px;margin-bottom:12px}.tabs button{flex:1}
+button,.filebtn{border:0;border-radius:9px;padding:11px 13px;background:var(--green);color:white;font-weight:700;font-size:14px;cursor:pointer}
+button.secondary,.filebtn.secondary{background:#e4ece8;color:var(--green)}button.danger{background:#a83232}
+.panel{background:white;border-radius:14px;padding:15px;margin-bottom:13px;box-shadow:0 2px 10px #173b3010}
+h2{font-size:17px;margin:0 0 13px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
+label{font-size:13px;font-weight:700;display:block}input,textarea{width:100%;padding:11px;border:1px solid #cbd7d1;border-radius:8px;margin-top:5px;font:inherit;font-size:15px;background:white}
+textarea{min-height:65px}.full{grid-column:1/-1}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:13px}.actions button{flex:1}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:12px}.stat{background:#e7efeb;padding:11px;border-radius:10px;text-align:center}.stat b{display:block;font-size:18px;color:var(--green)}.stat span{font-size:11px}
+.record{border:1px solid #dce5df;border-radius:10px;padding:12px;margin:9px 0}.recordtop{display:flex;justify-content:space-between;gap:8px}.record strong{color:var(--green)}.muted{color:#62716a;font-size:12px;line-height:1.6}.record p{margin:6px 0;font-size:14px}.hidden{display:none}.empty{text-align:center;color:#65736d;padding:22px}
+#notice{font-size:12px;color:#53645c;margin-top:8px}
+@media(max-width:520px){.grid{grid-template-columns:1fr}.full{grid-column:auto}.stats{grid-template-columns:repeat(2,1fr)}header h1{font-size:18px}}
+@media print{body{background:white}header{background:white;color:black;border-bottom:2px solid #333}header p{color:#333}main{padding:0;max-width:none}.tabs,.no-print,.actions,#entryPanel,#searchPanel,.stats{display:none!important}.panel{box-shadow:none;padding:0}.record{break-inside:avoid;border:1px solid #888}.record button{display:none}}
+</style>
+</head>
+<body>
+<header><h1>SRI NANDHI CARGO MOVERS</h1><p>DAILY TRIP BOOK / தினசரி ட்ரிப் ஷீட்</p></header>
+<main>
+<div class="tabs no-print">
+<button id="newTab">+ புதிய பதிவு</button><button class="secondary" id="listTab">பதிவுகள் / தேடல்</button>
+</div>
+<section class="panel" id="entryPanel">
+<h2>புதிய ட்ரிப் பதிவு</h2>
+<form id="tripForm">
+<div class="grid">
+<label>ட்ரிப் நம்பர்<input id="tripNo" readonly></label>
+<label>தேதி<input id="date" type="date" required></label>
+<label>வண்டி எண்<input id="vehicle" placeholder="TN 00 AB 1234"></label>
+<label>டிரைவர் பெயர்<input id="driver" placeholder="டிரைவர் பெயர்" required></label>
+<label>எங்கிருந்து (From)<input id="from" required placeholder="புறப்படும் இடம்"></label>
+<label>எங்கே (To)<input id="to" required placeholder="செல்லும் இடம்"></label>
+<label>தொடக்க KM<input id="startKm" type="number" min="0" step="0.1" placeholder="Start KM"></label>
+<label>முடிவு KM<input id="endKm" type="number" min="0" step="0.1" placeholder="End KM"></label>
+<label>ஓடிய மொத்த KM<input id="totalKm" readonly placeholder="தானாக கணக்காகும்"></label>
+<label>டிரைவர் அட்வான்ஸ் (₹)<input id="advance" type="number" min="0" step="0.01" value="0"></label>
+<label>டிரைவர் சம்பளம் (₹)<input id="salary" type="number" min="0" step="0.01" value="0"></label>
+<label>டீசல் அளவு (லிட்டர்)<input id="dieselLitres" type="number" min="0" step="0.01" placeholder="எத்தனை லிட்டர்"></label>
+<label>டீசல் செலவு (₹)<input id="dieselAmount" type="number" min="0" step="0.01" value="0" placeholder="டீசல் தொகை"></label>
+<label class="full">டீசல் போட்ட இடம் / பங்க்<input id="dieselPump" placeholder="டீசல் நிரப்பிய பங்க் பெயர் (விருப்பம்)"></label>
+<label class="full">குறிப்புகள்<input id="notes" placeholder="கூடுதல் விவரங்கள் (விருப்பம்)"></label>
+</div>
+<div class="actions"><button type="submit">பதிவை சேமிக்கவும்</button><button type="button" class="secondary" id="clearBtn">புதியதாக அழிக்க</button></div>
+<p id="notice">டீசல் லிட்டர், தொகை, பங்க் விவரமும் இந்த ட்ரிப்புடன் சேமிக்கப்படும். இந்த மொபைல் browser-ல் தானாக சேமிக்கப்படும். பாதுகாப்புக்காக அடிக்கடி Backup எடுக்கவும்.</p>
+</form>
+</section>
+<section class="panel hidden" id="searchPanel">
+<h2>ட்ரிப் பதிவுகள்</h2>
+<div class="grid no-print">
+<label>தேதி / மாதம் தேட<input id="searchDate" type="month"></label>
+<label>ட்ரிப் நம்பர் / டிரைவர் / இடம்<input id="searchText" placeholder="தேடவும்"></label>
+</div>
+<div class="stats">
+<div class="stat"><b id="count">0</b><span>ட்ரிப்கள்</span></div>
+<div class="stat"><b id="kms">0</b><span>மொத்த KM</span></div>
+<div class="stat"><b id="advances">₹0</b><span>அட்வான்ஸ்</span></div>
+<div class="stat"><b id="dieselTotal">₹0</b><span>டீசல் செலவு</span></div>
+</div>
+<div class="actions no-print">
+<button onclick="window.print()">Print / PDF</button>
+<button class="secondary" id="backupBtn">Backup எடுக்க</button>
+<label class="filebtn secondary" style="text-align:center">Backup Restore<input id="restoreFile" type="file" accept=".json,application/json" hidden></label>
+</div>
+<div id="records"></div>
+<p class="muted">Print / PDF அழுத்தி, Print திரையில் “Save as PDF” தேர்வு செய்யவும். Backup கோப்பை வேறு இடத்திலும் வைத்துக்கொள்ளவும்.</p>
+</section>
+</main>
+<script>
+const $=id=>document.getElementById(id);
+const KEY='sriNandhiTripBook_v1';
+let trips=[];
+try{trips=JSON.parse(localStorage.getItem(KEY)||'[]');if(!Array.isArray(trips))trips=[]}catch(e){trips=[]}
+const today=()=>new Date().toISOString().slice(0,10);
+function nextNo(){let max=0;trips.forEach(t=>{let n=parseInt((t.tripNo||'').replace(/\D/g,''),10);if(n>max)max=n});return 'SN-'+String(max+1).padStart(4,'0')}
+function setNew(){ $('tripForm').reset();$('date').value=today();$('tripNo').value=nextNo();$('advance').value=0;$('salary').value=0;$('totalKm').value='';}
+function save(){localStorage.setItem(KEY,JSON.stringify(trips))}
+function money(n){return '₹'+(Number(n)||0).toLocaleString('en-IN',{maximumFractionDigits:2})}
+$('startKm').addEventListener('input',calcKm);$('endKm').addEventListener('input',calcKm);
+function calcKm(){let a=parseFloat($('startKm').value),b=parseFloat($('endKm').value);$('totalKm').value=Number.isFinite(a)&&Number.isFinite(b)&&b>=a?(b-a).toFixed(1):''}
+$('tripForm').addEventListener('submit',e=>{
+ e.preventDefault();let a=$('startKm').value,b=$('endKm').value;
+ if(a!==''&&b!==''&&Number(b)<Number(a)){alert('முடிவு KM, தொடக்க KM-ஐ விட குறைவாக இருக்கக்கூடாது.');return}
+ let t={};['tripNo','date','vehicle','driver','from','to','startKm','endKm','totalKm','advance','salary','dieselLitres','dieselAmount','dieselPump','notes'].forEach(k=>t[k]=$(k).value.trim());
+ trips.push(t);save();alert('ட்ரிப் பதிவு சேமிக்கப்பட்டது: '+t.tripNo);setNew();render();
+});
+$('clearBtn').onclick=setNew;
+$('newTab').onclick=()=>{$('entryPanel').classList.remove('hidden');$('searchPanel').classList.add('hidden')};
+$('listTab').onclick=()=>{$('entryPanel').classList.add('hidden');$('searchPanel').classList.remove('hidden');render()};
+$('searchDate').oninput=render;$('searchText').oninput=render;
+function render(){
+ let month=$('searchDate').value,q=$('searchText').value.toLowerCase();
+ let list=[...trips].reverse().filter(t=>(!month||(t.date||'').startsWith(month))&&(!q||Object.values(t).join(' ').toLowerCase().includes(q)));
+ $('count').textContent=list.length;$('kms').textContent=list.reduce((s,t)=>s+(Number(t.totalKm)||0),0).toLocaleString('en-IN');$('advances').textContent=money(list.reduce((s,t)=>s+(Number(t.advance)||0),0));$('dieselTotal').textContent=money(list.reduce((s,t)=>s+(Number(t.dieselAmount)||0),0));
+ $('records').innerHTML=list.length?list.map(t=>`<article class="record"><div class="recordtop"><strong>${esc(t.tripNo)}</strong><span class="muted">${esc(t.date)}</span></div><p><b>${esc(t.from)}</b> → <b>${esc(t.to)}</b></p><p>டிரைவர்: ${esc(t.driver)} &nbsp; | &nbsp; வண்டி: ${esc(t.vehicle||'-')}</p><p>KM: ${esc(t.totalKm||'0')} &nbsp; | &nbsp; அட்வான்ஸ்: ${money(t.advance)} &nbsp; | &nbsp; சம்பளம்: ${money(t.salary)}</p><p>டீசல்: ${esc(t.dieselLitres||'0')} லிட்டர் &nbsp; | &nbsp; செலவு: ${money(t.dieselAmount)}${t.dieselPump?' | பங்க்: '+esc(t.dieselPump):''}</p>${t.notes?`<p class="muted">குறிப்பு: ${esc(t.notes)}</p>`:''}<div class="actions no-print"><button class="secondary" onclick="printOne('${esc(t.tripNo)}')">இந்த ட்ரிப் Print</button><button class="danger" onclick="deleteTrip('${esc(t.tripNo)}')">நீக்கு</button></div></article>`).join(''):'<div class="empty">இன்னும் ட்ரிப் பதிவு இல்லை.</div>';
+}
+function esc(v){return String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function deleteTrip(no){if(confirm(no+' பதிவை நீக்க வேண்டுமா?')){trips=trips.filter(t=>t.tripNo!==no);save();render()}}
+function printOne(no){let t=trips.find(x=>x.tripNo===no);if(!t)return;let w=window.open('','_blank');w.document.write(`<html><head><title>${esc(no)}</title><style>body{font-family:Arial,sans-serif;padding:25px}h2{text-align:center}table{width:100%;border-collapse:collapse}td{border:1px solid #555;padding:12px}</style></head><body><h2>SRI NANDHI CARGO MOVERS<br>TRIP SHEET</h2><table>${[['Trip No',t.tripNo],['Date',t.date],['Vehicle',t.vehicle],['Driver',t.driver],['From',t.from],['To',t.to],['Start KM',t.startKm],['End KM',t.endKm],['Total KM',t.totalKm],['Driver Advance',money(t.advance)],['Driver Salary',money(t.salary)],['Diesel Litres',(t.dieselLitres||'0')+' L'],['Diesel Amount',money(t.dieselAmount)],['Diesel Pump',t.dieselPump],['Notes',t.notes]].map(r=>`<tr><td>${esc(r[0])}</td><td>${esc(r[1]||'-')}</td></tr>`).join('')}</table><p style="margin-top:60px">Driver Signature: ______________ &nbsp;&nbsp; Authorized Signature: ______________</p><script>window.print()<\/script></body></html>`);w.document.close()}
+$('backupBtn').onclick=()=>{let blob=new Blob([JSON.stringify(trips,null,2)],{type:'application/json'});let a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='Sri_Nandhi_Trip_Backup_'+today()+'.json';a.click();URL.revokeObjectURL(a.href)};
+$('restoreFile').onchange=async e=>{let f=e.target.files[0];if(!f)return;try{let data=JSON.parse(await f.text());if(!Array.isArray(data))throw Error();if(confirm('தற்போதைய பதிவுகளுடன் Backup பதிவுகளையும் சேர்க்கவா? Cancel அழுத்தினால் Backup மட்டும் மாற்றப்படும்.'))trips=trips.concat(data);else trips=data;save();render();alert('Backup Restore முடிந்தது')}catch(err){alert('சரியான Backup JSON கோப்பை தேர்வு செய்யவும்')}e.target.value=''};
+setNew();render();
+</script>
+</body></html>

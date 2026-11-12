@@ -1,0 +1,25 @@
+SRI NANDHI CARGO MOVERS – TRIP BOOK APP
+=========================================
+
+இந்த ZIP-ல் install செய்யக்கூடிய PWA app கோப்புகள் உள்ளன.
+
+முக்கியம்:
+- இது Android native APK அல்ல; Home Screen-ல் தனி App போல திறக்கும் installable web app.
+- Chrome address bar இல்லாத standalone display மற்றும் offline app shell ஆதரவு உள்ளது.
+- Install செய்ய முதலில் இந்த கோப்புகளை HTTPS website/server-ல் publish செய்ய வேண்டும்.
+- HTML file-ஐ மட்டும் நேரடியாக திறந்தால் PWA install prompt / offline service worker இயங்காது.
+
+பதிவுகள்:
+- Trip entries browser Local Storage-ல் சேமிக்கப்படும்.
+- Backup எடுத்து வேறு இடத்தில் பாதுகாப்பாக வைத்துக்கொள்ளவும்.
+- Browser data clear செய்தால் உள்ளூர் பதிவுகள் அழியக்கூடும்.
+- வேறு மொபைலுக்கு தானாக sync ஆகாது.
+
+நிறுவும் முறை:
+1. இந்த ZIP-ஐ extract செய்து உள்ளே உள்ள எல்லா கோப்புகளையும் ஒரே folder அமைப்பில் வைத்திருக்கவும்.
+2. index.html, manifest.webmanifest, sw.js, icons folder ஆகியவற்றை HTTPS hosting-ல் upload செய்யவும்.
+3. Android Chrome-ல் அந்த website-ஐ திறக்கவும்.
+4. Chrome menu (⋮) > Install app / Add to Home screen அழுத்தவும்.
+5. Home Screen-ல் Nandhi Trips icon வரும். அதை அழுத்தினால் standalone app போல திறக்கும்.
+
+Native APK வேண்டுமெனில் Android build/signing செய்ய தனி Android project மற்றும் build environment தேவை.

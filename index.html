@@ -1,112 +1,119 @@
 <!doctype html>
 <html lang="ta">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#123b32">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>SRI NANDHI CARGO MOVERS – Trip Book</title>
 <style>
-:root{--green:#123b32;--gold:#e7b84b;--bg:#f3f6f4;--ink:#17231f}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:Arial,"Noto Sans Tamil",sans-serif;color:var(--ink)}
-header{background:var(--green);color:white;padding:18px 16px;text-align:center}header h1{font-size:21px;margin:0 0 5px}header p{margin:0;color:#e8d7a6;font-size:13px}
-main{max-width:900px;margin:auto;padding:14px}.tabs{display:flex;gap:8px;margin-bottom:12px}.tabs button{flex:1}
-button,.filebtn{border:0;border-radius:9px;padding:11px 13px;background:var(--green);color:white;font-weight:700;font-size:14px;cursor:pointer}
-button.secondary,.filebtn.secondary{background:#e4ece8;color:var(--green)}button.danger{background:#a83232}
-.panel{background:white;border-radius:14px;padding:15px;margin-bottom:13px;box-shadow:0 2px 10px #173b3010}
-h2{font-size:17px;margin:0 0 13px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
-label{font-size:13px;font-weight:700;display:block}input,textarea{width:100%;padding:11px;border:1px solid #cbd7d1;border-radius:8px;margin-top:5px;font:inherit;font-size:15px;background:white}
-textarea{min-height:65px}.full{grid-column:1/-1}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:13px}.actions button{flex:1}
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:12px}.stat{background:#e7efeb;padding:11px;border-radius:10px;text-align:center}.stat b{display:block;font-size:18px;color:var(--green)}.stat span{font-size:11px}
-.record{border:1px solid #dce5df;border-radius:10px;padding:12px;margin:9px 0}.recordtop{display:flex;justify-content:space-between;gap:8px}.record strong{color:var(--green)}.muted{color:#62716a;font-size:12px;line-height:1.6}.record p{margin:6px 0;font-size:14px}.hidden{display:none}.empty{text-align:center;color:#65736d;padding:22px}
-#notice{font-size:12px;color:#53645c;margin-top:8px}
-@media(max-width:520px){.grid{grid-template-columns:1fr}.full{grid-column:auto}.stats{grid-template-columns:repeat(2,1fr)}header h1{font-size:18px}}
-@media print{body{background:white}header{background:white;color:black;border-bottom:2px solid #333}header p{color:#333}main{padding:0;max-width:none}.tabs,.no-print,.actions,#entryPanel,#searchPanel,.stats{display:none!important}.panel{box-shadow:none;padding:0}.record{break-inside:avoid;border:1px solid #888}.record button{display:none}}
+:root{--navy:#12304a;--gold:#e0a52b;--bg:#f2f5f8;--line:#d9e1e8}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:Arial,"Noto Sans Tamil",sans-serif;color:#172b3a}
+header{background:linear-gradient(120deg,#102d45,#245574);color:white;padding:20px 16px}
+header h1{font-size:22px;margin:0 0 5px}header p{margin:0;color:#d9e8f1;font-size:13px}
+main{max-width:1100px;margin:auto;padding:14px}
+nav{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 14px}
+button,.tab{border:0;border-radius:9px;padding:11px 14px;background:var(--navy);color:white;font-weight:700;cursor:pointer}
+.tab{background:#dce5ec;color:#17354c}.tab.active{background:var(--navy);color:white}
+.panel{background:white;border:1px solid var(--line);border-radius:14px;padding:15px;margin:12px 0;box-shadow:0 2px 8px #19364b0b}
+h2{font-size:18px;margin:0 0 12px;color:var(--navy)}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+label{display:block;font-size:13px;font-weight:700;color:#405668}
+input,select,textarea{width:100%;padding:11px;margin-top:5px;border:1px solid #cbd6df;border-radius:8px;font-size:15px;background:white;color:#172b3a}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.secondary{background:#e6edf2;color:#17354c}.danger{background:#a83434}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}
+.metric{background:#f3f7fa;border-radius:10px;padding:12px}.metric small{color:#607486}.metric strong{display:block;font-size:19px;margin-top:5px}
+.tablewrap{overflow:auto}table{border-collapse:collapse;width:100%;min-width:780px;font-size:13px}th,td{padding:9px;border-bottom:1px solid var(--line);text-align:left;white-space:nowrap}th{background:#edf3f7;color:#29475e}
+.hidden{display:none}.note{font-size:12px;color:#607486;line-height:1.5}
+@media(max-width:700px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.cards{grid-template-columns:repeat(2,1fr)}header h1{font-size:19px}}
+@media(max-width:420px){.grid{grid-template-columns:1fr}}
+@media print{body{background:white}header,nav,.no-print,.actions{display:none!important}main{padding:0;max-width:none}.panel{box-shadow:none;border:0;padding:4px}.tablewrap{overflow:visible}table{min-width:0;font-size:10px}th,td{white-space:normal;padding:5px}.hidden{display:none!important}.print-title{display:block!important}}
+.print-title{display:none}
 </style>
 </head>
 <body>
-<header><h1>SRI NANDHI CARGO MOVERS</h1><p>DAILY TRIP BOOK / தினசரி ட்ரிப் ஷீட்</p></header>
+<header><h1>SRI NANDHI CARGO MOVERS</h1><p>டிஜிட்டல் ட்ரிப் புக் · Daily Trip Register</p></header>
 <main>
-<div class="tabs no-print">
-<button id="newTab">+ புதிய பதிவு</button><button class="secondary" id="listTab">பதிவுகள் / தேடல்</button>
-</div>
-<section class="panel" id="entryPanel">
-<h2>புதிய ட்ரிப் பதிவு</h2>
+<nav class="no-print">
+<button class="tab active" data-tab="entry">Daily Entry</button>
+<button class="tab" data-tab="records">Trip Records</button>
+<button class="tab" data-tab="reports">Weekly / Monthly PDF</button>
+<button class="tab" data-tab="backup">Backup</button>
+</nav>
+<section id="entry" class="panel">
+<h2>தினசரி ட்ரிப் பதிவு</h2>
 <form id="tripForm">
+<input type="hidden" id="editId">
 <div class="grid">
-<label>ட்ரிப் நம்பர்<input id="tripNo" readonly></label>
-<label>தேதி<input id="date" type="date" required></label>
-<label>வண்டி எண்<input id="vehicle" placeholder="TN 00 AB 1234"></label>
-<label>டிரைவர் பெயர்<input id="driver" placeholder="டிரைவர் பெயர்" required></label>
-<label>எங்கிருந்து (From)<input id="from" required placeholder="புறப்படும் இடம்"></label>
-<label>எங்கே (To)<input id="to" required placeholder="செல்லும் இடம்"></label>
-<label>தொடக்க KM<input id="startKm" type="number" min="0" step="0.1" placeholder="Start KM"></label>
-<label>முடிவு KM<input id="endKm" type="number" min="0" step="0.1" placeholder="End KM"></label>
-<label>ஓடிய மொத்த KM<input id="totalKm" readonly placeholder="தானாக கணக்காகும்"></label>
-<label>டிரைவர் அட்வான்ஸ் (₹)<input id="advance" type="number" min="0" step="0.01" value="0"></label>
-<label>டிரைவர் சம்பளம் (₹)<input id="salary" type="number" min="0" step="0.01" value="0"></label>
-<label>டீசல் அளவு (லிட்டர்)<input id="dieselLitres" type="number" min="0" step="0.01" placeholder="எத்தனை லிட்டர்"></label>
-<label>டீசல் செலவு (₹)<input id="dieselAmount" type="number" min="0" step="0.01" value="0" placeholder="டீசல் தொகை"></label>
-<label class="full">டீசல் போட்ட இடம் / பங்க்<input id="dieselPump" placeholder="டீசல் நிரப்பிய பங்க் பெயர் (விருப்பம்)"></label>
-<label class="full">குறிப்புகள்<input id="notes" placeholder="கூடுதல் விவரங்கள் (விருப்பம்)"></label>
+<label>தேதி / Date<input id="date" type="date" required></label>
+<label>வண்டி எண் / Vehicle No.<input id="vehicle" placeholder="TN 00 AB 0000" required></label>
+<label>டிரைவர் பெயர்<input id="driver" placeholder="Driver name"></label>
+<label>From / எங்கிருந்து<input id="from" placeholder="Starting place" required></label>
+<label>To / எங்கு<input id="to" placeholder="Destination" required></label>
+<label>ட்ரிப் வாடகை / Rent (₹)<input id="rent" type="number" min="0" step=".01" value="0"></label>
+<label>டீசல் மொத்தம் / Diesel (₹)<input id="diesel" type="number" min="0" step=".01" value="0"></label>
+<label>பங்க் கிரெடிட் / Bunk Credit (₹)<input id="credit" type="number" min="0" step=".01" value="0"></label>
+<label>டிரைவர் சம்பளம் / Salary (₹)<input id="salary" type="number" min="0" step=".01" value="0"></label>
+<label>சம்பள அட்வான்ஸ் / Advance (₹)<input id="advance" type="number" min="0" step=".01" value="0"></label>
+<label>டோல் / Toll (₹)<input id="toll" type="number" min="0" step=".01" value="0"></label>
+<label>மற்ற செலவு / Other (₹)<input id="other" type="number" min="0" step=".01" value="0"></label>
+<label>தொடக்க KM<input id="startKm" type="number" min="0" step=".1"></label>
+<label>முடிவு KM<input id="endKm" type="number" min="0" step=".1"></label>
+<label>குறிப்பு / Notes<input id="notes" placeholder="Optional"></label>
 </div>
-<div class="actions"><button type="submit">பதிவை சேமிக்கவும்</button><button type="button" class="secondary" id="clearBtn">புதியதாக அழிக்க</button></div>
-<p id="notice">டீசல் லிட்டர், தொகை, பங்க் விவரமும் இந்த ட்ரிப்புடன் சேமிக்கப்படும். இந்த மொபைல் browser-ல் தானாக சேமிக்கப்படும். பாதுகாப்புக்காக அடிக்கடி Backup எடுக்கவும்.</p>
-</form>
-</section>
-<section class="panel hidden" id="searchPanel">
-<h2>ட்ரிப் பதிவுகள்</h2>
+<div class="actions"><button type="submit" id="saveBtn">சேமிக்கவும் / Save Trip</button><button type="button" class="secondary" onclick="resetForm()">புதிய பதிவு / Clear</button></div>
+<p class="note">குறிப்பு: Advance என்பது Salary-யின் ஒரு பகுதி. கணக்கில் Salary-ஐ ஒருமுறை மட்டுமே செலவாகக் கணக்கிடும். Bunk Credit தனியாக நிலுவையாகக் காட்டப்படும்.</p>
+</form></section>
+
+<section id="records" class="panel hidden">
+<h2>பதிவு செய்யப்பட்ட ட்ரிப்கள்</h2>
 <div class="grid no-print">
-<label>தேதி / மாதம் தேட<input id="searchDate" type="month"></label>
-<label>ட்ரிப் நம்பர் / டிரைவர் / இடம்<input id="searchText" placeholder="தேடவும்"></label>
+<label>தேதி முதல்<input id="filterFrom" type="date"></label><label>தேதி வரை<input id="filterTo" type="date"></label>
+<label>வண்டி எண்<input id="filterVehicle" placeholder="All vehicles"></label>
 </div>
-<div class="stats">
-<div class="stat"><b id="count">0</b><span>ட்ரிப்கள்</span></div>
-<div class="stat"><b id="kms">0</b><span>மொத்த KM</span></div>
-<div class="stat"><b id="advances">₹0</b><span>அட்வான்ஸ்</span></div>
-<div class="stat"><b id="dieselTotal">₹0</b><span>டீசல் செலவு</span></div>
+<div class="actions no-print"><button onclick="renderRecords()">தேடுக</button><button class="secondary" onclick="clearFilters()">அனைத்தும்</button></div>
+<div class="tablewrap"><table><thead><tr><th>தேதி</th><th>வண்டி</th><th>டிரைவர்</th><th>From – To</th><th>Rent</th><th>Diesel</th><th>Bunk Credit</th><th>Salary</th><th>Advance</th><th>KM</th><th class="no-print">Edit</th></tr></thead><tbody id="recordsBody"></tbody></table></div>
+</section>
+
+<section id="reports" class="panel hidden">
+<div class="print-title"><h2>SRI NANDHI CARGO MOVERS – Trip Report</h2></div>
+<h2 class="no-print">வார / மாத அறிக்கை</h2>
+<div class="grid no-print">
+<label>அறிக்கை வகை<select id="period"><option value="week">Weekly – வாரம்</option><option value="month">Monthly – மாதம்</option></select></label>
+<label>தேதி தேர்வு<input id="periodDate" type="date"></label>
+<label>வண்டி (விருப்பம்)<input id="periodVehicle" placeholder="All vehicles"></label>
 </div>
-<div class="actions no-print">
-<button onclick="window.print()">Print / PDF</button>
-<button class="secondary" id="backupBtn">Backup எடுக்க</button>
-<label class="filebtn secondary" style="text-align:center">Backup Restore<input id="restoreFile" type="file" accept=".json,application/json" hidden></label>
-</div>
-<div id="records"></div>
-<p class="muted">Print / PDF அழுத்தி, Print திரையில் “Save as PDF” தேர்வு செய்யவும். Backup கோப்பை வேறு இடத்திலும் வைத்துக்கொள்ளவும்.</p>
+<div class="actions no-print"><button onclick="buildReport()">அறிக்கை காண்க</button><button onclick="window.SNCM.printReport()">PDF / Print</button></div>
+<div id="reportArea"><p class="note">தேதியைத் தேர்வு செய்து “அறிக்கை காண்க” அழுத்தவும். பிறகு PDF / Print தேர்வு செய்து Save as PDF செய்யவும்.</p></div>
+</section>
+
+<section id="backup" class="panel hidden">
+<h2>தரவு பாதுகாப்பு / Backup</h2>
+<p>இந்தப் பதிவு இந்த மொபைல் / உலாவியின் உள்ளக சேமிப்பில் இருக்கும். உலாவி தரவை அழித்தால் பதிவுகள் போகலாம். அதனால் அடிக்கடி Backup எடுத்து வைத்துக்கொள்ளவும்.</p>
+<div class="actions"><button onclick="exportBackup()">Backup Download</button><label class="secondary" style="padding:10px;border-radius:8px">Backup Restore<input type="file" id="restoreFile" accept=".json" style="padding:5px" onchange="restoreBackup(event)"></label><button class="secondary" onclick="exportCsv()">CSV Download</button></div>
+<p class="note">முக்கியம்: இது இணையதள சர்வரில் தானாகச் சேமிக்காது. ஒரே மொபைல் / ஒரே உலாவியில் பயன்படுத்தவும்; Backup கோப்பை வேறு இடத்திலும் வைத்துக்கொள்ளவும்.</p>
 </section>
 </main>
 <script>
-const $=id=>document.getElementById(id);
-const KEY='sriNandhiTripBook_v1';
-let trips=[];
-try{trips=JSON.parse(localStorage.getItem(KEY)||'[]');if(!Array.isArray(trips))trips=[]}catch(e){trips=[]}
-const today=()=>new Date().toISOString().slice(0,10);
-function nextNo(){let max=0;trips.forEach(t=>{let n=parseInt((t.tripNo||'').replace(/\D/g,''),10);if(n>max)max=n});return 'SN-'+String(max+1).padStart(4,'0')}
-function setNew(){ $('tripForm').reset();$('date').value=today();$('tripNo').value=nextNo();$('advance').value=0;$('salary').value=0;$('totalKm').value='';}
-function save(){localStorage.setItem(KEY,JSON.stringify(trips))}
-function money(n){return '₹'+(Number(n)||0).toLocaleString('en-IN',{maximumFractionDigits:2})}
-$('startKm').addEventListener('input',calcKm);$('endKm').addEventListener('input',calcKm);
-function calcKm(){let a=parseFloat($('startKm').value),b=parseFloat($('endKm').value);$('totalKm').value=Number.isFinite(a)&&Number.isFinite(b)&&b>=a?(b-a).toFixed(1):''}
-$('tripForm').addEventListener('submit',e=>{
- e.preventDefault();let a=$('startKm').value,b=$('endKm').value;
- if(a!==''&&b!==''&&Number(b)<Number(a)){alert('முடிவு KM, தொடக்க KM-ஐ விட குறைவாக இருக்கக்கூடாது.');return}
- let t={};['tripNo','date','vehicle','driver','from','to','startKm','endKm','totalKm','advance','salary','dieselLitres','dieselAmount','dieselPump','notes'].forEach(k=>t[k]=$(k).value.trim());
- trips.push(t);save();alert('ட்ரிப் பதிவு சேமிக்கப்பட்டது: '+t.tripNo);setNew();render();
-});
-$('clearBtn').onclick=setNew;
-$('newTab').onclick=()=>{$('entryPanel').classList.remove('hidden');$('searchPanel').classList.add('hidden')};
-$('listTab').onclick=()=>{$('entryPanel').classList.add('hidden');$('searchPanel').classList.remove('hidden');render()};
-$('searchDate').oninput=render;$('searchText').oninput=render;
-function render(){
- let month=$('searchDate').value,q=$('searchText').value.toLowerCase();
- let list=[...trips].reverse().filter(t=>(!month||(t.date||'').startsWith(month))&&(!q||Object.values(t).join(' ').toLowerCase().includes(q)));
- $('count').textContent=list.length;$('kms').textContent=list.reduce((s,t)=>s+(Number(t.totalKm)||0),0).toLocaleString('en-IN');$('advances').textContent=money(list.reduce((s,t)=>s+(Number(t.advance)||0),0));$('dieselTotal').textContent=money(list.reduce((s,t)=>s+(Number(t.dieselAmount)||0),0));
- $('records').innerHTML=list.length?list.map(t=>`<article class="record"><div class="recordtop"><strong>${esc(t.tripNo)}</strong><span class="muted">${esc(t.date)}</span></div><p><b>${esc(t.from)}</b> → <b>${esc(t.to)}</b></p><p>டிரைவர்: ${esc(t.driver)} &nbsp; | &nbsp; வண்டி: ${esc(t.vehicle||'-')}</p><p>KM: ${esc(t.totalKm||'0')} &nbsp; | &nbsp; அட்வான்ஸ்: ${money(t.advance)} &nbsp; | &nbsp; சம்பளம்: ${money(t.salary)}</p><p>டீசல்: ${esc(t.dieselLitres||'0')} லிட்டர் &nbsp; | &nbsp; செலவு: ${money(t.dieselAmount)}${t.dieselPump?' | பங்க்: '+esc(t.dieselPump):''}</p>${t.notes?`<p class="muted">குறிப்பு: ${esc(t.notes)}</p>`:''}<div class="actions no-print"><button class="secondary" onclick="printOne('${esc(t.tripNo)}')">இந்த ட்ரிப் Print</button><button class="danger" onclick="deleteTrip('${esc(t.tripNo)}')">நீக்கு</button></div></article>`).join(''):'<div class="empty">இன்னும் ட்ரிப் பதிவு இல்லை.</div>';
-}
-function esc(v){return String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
-function deleteTrip(no){if(confirm(no+' பதிவை நீக்க வேண்டுமா?')){trips=trips.filter(t=>t.tripNo!==no);save();render()}}
-function printOne(no){let t=trips.find(x=>x.tripNo===no);if(!t)return;let w=window.open('','_blank');w.document.write(`<html><head><title>${esc(no)}</title><style>body{font-family:Arial,sans-serif;padding:25px}h2{text-align:center}table{width:100%;border-collapse:collapse}td{border:1px solid #555;padding:12px}</style></head><body><h2>SRI NANDHI CARGO MOVERS<br>TRIP SHEET</h2><table>${[['Trip No',t.tripNo],['Date',t.date],['Vehicle',t.vehicle],['Driver',t.driver],['From',t.from],['To',t.to],['Start KM',t.startKm],['End KM',t.endKm],['Total KM',t.totalKm],['Driver Advance',money(t.advance)],['Driver Salary',money(t.salary)],['Diesel Litres',(t.dieselLitres||'0')+' L'],['Diesel Amount',money(t.dieselAmount)],['Diesel Pump',t.dieselPump],['Notes',t.notes]].map(r=>`<tr><td>${esc(r[0])}</td><td>${esc(r[1]||'-')}</td></tr>`).join('')}</table><p style="margin-top:60px">Driver Signature: ______________ &nbsp;&nbsp; Authorized Signature: ______________</p><script>window.print()<\/script></body></html>`);w.document.close()}
-$('backupBtn').onclick=()=>{let blob=new Blob([JSON.stringify(trips,null,2)],{type:'application/json'});let a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='Sri_Nandhi_Trip_Backup_'+today()+'.json';a.click();URL.revokeObjectURL(a.href)};
-$('restoreFile').onchange=async e=>{let f=e.target.files[0];if(!f)return;try{let data=JSON.parse(await f.text());if(!Array.isArray(data))throw Error();if(confirm('தற்போதைய பதிவுகளுடன் Backup பதிவுகளையும் சேர்க்கவா? Cancel அழுத்தினால் Backup மட்டும் மாற்றப்படும்.'))trips=trips.concat(data);else trips=data;save();render();alert('Backup Restore முடிந்தது')}catch(err){alert('சரியான Backup JSON கோப்பை தேர்வு செய்யவும்')}e.target.value=''};
-setNew();render();
+const $=id=>document.getElementById(id), fields=['date','vehicle','driver','from','to','rent','diesel','credit','salary','advance','toll','other','startKm','endKm','notes'];
+let trips=JSON.parse(localStorage.getItem('sncm_trips')||'[]');
+$('date').value=new Date().toISOString().slice(0,10);$('periodDate').value=$('date').value;
+function save(){localStorage.setItem('sncm_trips',JSON.stringify(trips))}
+function money(v){return '₹'+(Number(v)||0).toLocaleString('en-IN',{maximumFractionDigits:2})}
+function val(id){return $(id).value}
+function resetForm(){ $('tripForm').reset();$('editId').value='';$('date').value=new Date().toISOString().slice(0,10);$('saveBtn').textContent='சேமிக்கவும் / Save Trip';}
+$('tripForm').addEventListener('submit',e=>{e.preventDefault();let obj={};fields.forEach(f=>obj[f]=val(f));['rent','diesel','credit','salary','advance','toll','other','startKm','endKm'].forEach(f=>obj[f]=Number(obj[f])||0);obj.id=val('editId')||String(Date.now());let i=trips.findIndex(t=>t.id===obj.id);if(i>=0)trips[i]=obj;else trips.push(obj);save();resetForm();alert('Trip saved successfully');renderRecords();});
+function editTrip(id){let t=trips.find(x=>x.id===id);if(!t)return;fields.forEach(f=>$(f).value=t[f]??'');$('editId').value=id;$('saveBtn').textContent='Update Trip';showTab('entry');window.scrollTo(0,0)}
+function deleteTrip(id){if(confirm('இந்த பதிவை நீக்கவா?')){trips=trips.filter(t=>t.id!==id);save();renderRecords()}}
+function showTab(id){document.querySelectorAll('main>section').forEach(s=>s.classList.toggle('hidden',s.id!==id));document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('active',b.dataset.tab===id));if(id==='records')renderRecords()}
+document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>showTab(b.dataset.tab));
+function clearFilters(){['filterFrom','filterTo','filterVehicle'].forEach(x=>$(x).value='');renderRecords()}
+function filtered(){let a=val('filterFrom'),b=val('filterTo'),v=val('filterVehicle').toLowerCase();return trips.filter(t=>(!a||t.date>=a)&&(!b||t.date<=b)&&(!v||t.vehicle.toLowerCase().includes(v))).sort((x,y)=>y.date.localeCompare(x.date))}
+function renderRecords(){let rows=filtered();$('recordsBody').innerHTML=rows.map(t=>`<tr><td>${t.date}</td><td>${esc(t.vehicle)}</td><td>${esc(t.driver)}</td><td>${esc(t.from)} – ${esc(t.to)}</td><td>${money(t.rent)}</td><td>${money(t.diesel)}</td><td>${money(t.credit)}</td><td>${money(t.salary)}</td><td>${money(t.advance)}</td><td>${t.startKm||''}–${t.endKm||''}</td><td class="no-print"><button onclick="editTrip('${t.id}')">Edit</button> <button class="danger" onclick="deleteTrip('${t.id}')">×</button></td></tr>`).join('')||'<tr><td colspan="11">பதிவுகள் இல்லை</td></tr>'}
+function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function buildReport(){let d=new Date(val('periodDate')+'T12:00:00');if(isNaN(d))return alert('தேதி தேர்வு செய்யவும்');let start,end;if(val('period')==='week'){let day=(d.getDay()+6)%7;start=new Date(d);start.setDate(d.getDate()-day);end=new Date(start);end.setDate(start.getDate()+6)}else{start=new Date(d.getFullYear(),d.getMonth(),1);end=new Date(d.getFullYear(),d.getMonth()+1,0)}let iso=x=>x.toISOString().slice(0,10),a=iso(start),b=iso(end),v=val('periodVehicle').toLowerCase();let list=trips.filter(t=>t.date>=a&&t.date<=b&&(!v||t.vehicle.toLowerCase().includes(v))).sort((x,y)=>x.date.localeCompare(y.date));let sum=k=>list.reduce((s,t)=>s+(Number(t[k])||0),0);let salary=sum('salary'),advance=sum('advance'),diesel=sum('diesel'),credit=sum('credit'),rent=sum('rent'),toll=sum('toll'),other=sum('other');let expense=diesel+toll+other+salary;let html=`<h2>${val('period')==='week'?'Weekly Report':'Monthly Report'}: ${a} to ${b}</h2><p>வண்டி: ${v?esc(val('periodVehicle')):'அனைத்து வண்டிகள்'} · மொத்த ட்ரிப்கள்: ${list.length}</p><div class="cards"><div class="metric"><small>Total Rent</small><strong>${money(rent)}</strong></div><div class="metric"><small>Diesel</small><strong>${money(diesel)}</strong></div><div class="metric"><small>Bunk Credit Due</small><strong>${money(credit)}</strong></div><div class="metric"><small>Salary</small><strong>${money(salary)}</strong></div><div class="metric"><small>Advance (included in salary)</small><strong>${money(advance)}</strong></div><div class="metric"><small>Salary Balance</small><strong>${money(Math.max(0,salary-advance))}</strong></div><div class="metric"><small>Toll + Other</small><strong>${money(toll+other)}</strong></div><div class="metric"><small>Net (Rent − expenses)</small><strong>${money(rent-expense)}</strong></div></div><h2 style="margin-top:18px">Trip Details</h2><div class="tablewrap"><table><thead><tr><th>Date</th><th>Vehicle</th><th>Driver</th><th>From – To</th><th>Rent</th><th>Diesel</th><th>Bunk Credit</th><th>Salary</th><th>Advance</th><th>Toll</th><th>Other</th></tr></thead><tbody>${list.map(t=>`<tr><td>${t.date}</td><td>${esc(t.vehicle)}</td><td>${esc(t.driver)}</td><td>${esc(t.from)} – ${esc(t.to)}</td><td>${money(t.rent)}</td><td>${money(t.diesel)}</td><td>${money(t.credit)}</td><td>${money(t.salary)}</td><td>${money(t.advance)}</td><td>${money(t.toll)}</td><td>${money(t.other)}</td></tr>`).join('')||'<tr><td colspan="11">No trips in this period</td></tr>'}</tbody></table></div><p class="note">கணக்கு: Net = Rent − (Diesel + Toll + Other + Salary). Advance என்பது Salary-க்குள் அடங்கும்; தனியாக மீண்டும் கழிக்கப்படவில்லை. Bunk Credit நிலுவைத் தொகை; Diesel-ல் ஏற்கனவே சேர்க்கப்பட்டிருந்தால் இருமுறை கழிக்க வேண்டாம்.</p>`;$('reportArea').innerHTML=html}
+function exportBackup(){let blob=new Blob([JSON.stringify(trips,null,2)],{type:'application/json'});download(blob,'sri-nandhi-trip-backup.json')}
+function exportCsv(){let header=fields;let lines=[header.join(',')].concat(trips.map(t=>header.map(k=>'"'+String(t[k]??'').replace(/"/g,'""')+'"').join(',')));download(new Blob(['\ufeff'+lines.join('\n')],{type:'text/csv;charset=utf-8'}),'sri-nandhi-trips.csv')}
+function download(blob,name){let a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;a.click();URL.revokeObjectURL(a.href)}
+function restoreBackup(e){let f=e.target.files[0];if(!f)return;let r=new FileReader();r.onload=()=>{try{let data=JSON.parse(r.result);if(!Array.isArray(data))throw Error();if(confirm('தற்போதைய பதிவுகளுடன் Backup பதிவுகளையும் சேர்க்கவா? Cancel செய்தால் Backup மட்டும் வைக்கப்படும்.'))trips=trips.concat(data);else trips=data;save();renderRecords();alert('Backup restored')}catch(_){alert('தவறான Backup கோப்பு')}};r.readAsText(f)}
+renderRecords();
 </script>
 </body></html>

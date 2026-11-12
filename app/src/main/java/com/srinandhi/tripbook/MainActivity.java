@@ -22,6 +22,9 @@ public class MainActivity extends Activity {
         settings.setDomStorageEnabled(true);
 
         webView.setWebViewClient(new WebViewClient());
-        webView.loadUrl("file:///android_asset/index.html");
+
+        webView.loadUrl(
+          "https://kingofthekingsk7129-commits.github.io/SRI-NANDHI-CARGO-MOVERS/"
+        );
     }
 }

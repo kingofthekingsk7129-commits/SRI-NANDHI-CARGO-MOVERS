@@ -13,7 +13,7 @@ body{font-family:Arial,sans-serif;margin:0;background:#f1f4f7;color:#183044}head
 <label>Advance ₹<input id="advance" type="number" value="0"></label><label>Toll ₹<input id="toll" type="number" value="0"></label><label>Other ₹<input id="other" type="number" value="0"></label>
 <label>Start KM<input id="start" type="number"></label><label>End KM<input id="end" type="number"></label></div>
 <button type="submit">Save Trip</button><button type="button" onclick="document.getElementById('f').reset()">Clear</button></form></section>
-<section class="card"><h2>Trip Records</h2><div class="noprint"><button onclick="window.print()">PDF / Print</button><button onclick="backup()">Backup JSON</button></div><div id="totals"></div><div class="scroll"><table><thead><tr><th>Date</th><th>Vehicle</th><th>Driver</th><th>From-To</th><th>Rent</th><th>Diesel</th><th>Credit</th><th>Salary</th><th>Advance</th></tr><th>Net Profit</th></thead><tbody id="rows"></tbody></table></div></section>
+<section class="card"><h2>Trip Records</h2><div class="noprint"><button onclick="window.print()">PDF / Print</button><button onclick="backup()">Backup JSON</button></div><div id="totals"></div><div class="scroll"><table><thead><tr><th>Date</th><th>Vehicle</th><th>Driver</th><th>From-To</th><th>Rent</th><th>Diesel</th><th>Credit</th><th>Advance</th><th>Net Profit</th></tr></thead><tbody id="rows"></tbody></table></div></section>
 </main><script>
 const keys=['date','vehicle','driver','from','to','rent','diesel','credit','salary','advance','toll','other','start','end'];
 let data=JSON.parse(localStorage.getItem('sncmTrips')||'[]');
